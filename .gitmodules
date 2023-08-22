@@ -1,0 +1,3 @@
+[submodule "jieba-rs"]
+	path = jieba-rs
+	url = git@github.com:ZnqbuZ/jieba-rs.git
