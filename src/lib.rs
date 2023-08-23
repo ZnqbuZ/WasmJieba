@@ -56,6 +56,35 @@ pub fn cutForSearch(text: &str, hmm: bool) -> Vec<JsValue> {
         .collect()
 }
 
+// wasm_bindgen needs to read this signature.
+// I wish patch jieba-rs as little as possible.
+#[wasm_bindgen]
+#[allow(non_snake_case)]
+pub enum TokenizeMode {
+    Default,
+    Search,
+}
+
+// Inelegant, but no better way found.
+impl TokenizeMode {
+    fn to_jieba(&self) -> jieba_rs::TokenizeMode {
+        match self {
+            TokenizeMode::Default => jieba_rs::TokenizeMode::Default,
+            TokenizeMode::Search => jieba_rs::TokenizeMode::Search,
+        }
+    }
+}
+
+#[wasm_bindgen]
+#[allow(non_snake_case)]
+pub fn tokenize(text: &str, mode: Option<TokenizeMode>, hmm: bool) -> Vec<JsValue> {
+    instance().read().unwrap()
+        .tokenize(text, mode.map(|m| m.to_jieba()).unwrap(), hmm)
+        .into_iter()
+        .map(|t| serde_wasm_bindgen::to_value(&t).unwrap())
+        .collect()
+}
+
 #[wasm_bindgen]
 #[allow(non_snake_case)]
 pub fn suggestFreq(segment: &str) -> usize {
