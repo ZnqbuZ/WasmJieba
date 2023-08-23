@@ -10,8 +10,20 @@ extern {
 
 fn instance() -> &'static RwLock<jieba_rs::Jieba> {
     static INSTANCE: OnceLock<RwLock<jieba_rs::Jieba>> = OnceLock::new();
-    INSTANCE.get_or_init(|| RwLock::new(
-        jieba_rs::Jieba::new()))
+    INSTANCE.get_or_init(|| {
+        let new_instance = RwLock::new(
+            jieba_rs::Jieba::new());
+        
+        let default_hans_dict = include_str!("dicts/default.hans.dict.txt");
+        new_instance.write().unwrap()
+            .load_dict(&mut BufReader::new(default_hans_dict.as_bytes())).unwrap();
+        
+        let default_hant_dict = include_str!("dicts/default.hant.dict.txt");
+        new_instance.write().unwrap()
+            .load_dict(&mut BufReader::new(default_hant_dict.as_bytes())).unwrap();
+        
+        new_instance
+    })
 }
 
 
