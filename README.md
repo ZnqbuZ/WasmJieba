@@ -1,4 +1,4 @@
-<div align="center">
+<div style="text-align: center">
 
   <h1><code>WasmJieba</code></h1>
 
@@ -9,14 +9,19 @@
 
 ## About
 
-This is a minimal partially usable WASM binding to [jieba-rs].
+This is a minimal usable WASM binding to [jieba-rs].
 Both Simplified Chinese and Traditional Chinese are supported.
 Thanks to [js-jieba] for the `default.hant` dict file.
 
-Currently, only `cut` and `loadDict` are implemented.
-
 [jieba-rs]: https://github.com/messense/jieba-rs
+
 [js-jieba]: https://www.npmjs.com/package/js-jieba
+
+## 🎁 Implemented APIs
+
+Just read [src/lib.rs].
+
+[src/lib.rs]: https://github.com/ZnqbuZ/WasmJieba/blob/master/src/lib.rs
 
 ## 🚴 Usage
 
