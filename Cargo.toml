@@ -3,6 +3,9 @@ name = "wasmjieba"
 version = "1.0.0"
 authors = ["Luna Yao <me+github@zznq.buzz>"]
 edition = "2021"
+description = "A WASM binding to jieba-rs."
+repository = "https://github.com/ZnqbuZ/WasmJieba"
+license = "MIT"
 
 [lib]
 crate-type = ["cdylib", "rlib"]
@@ -25,7 +28,7 @@ wasm-bindgen-test = "0.3"
 
 [profile.release]
 # Tell `rustc` to optimize for small code size.
-opt-level = "s"
+opt-level = "z"
 
 [workspace]
 members = [
