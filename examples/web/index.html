@@ -6,13 +6,16 @@
 </head>
 <body>
 <script type="module">
-    import init, {cut, loadDict} from "../../pkg/web/web.js";
+    import init, {cut, loadDict, addWord, TokenizeMode, tokenize} from "../../pkg/web/web.js";
     import {customDict} from "./custom.dict.js";
 
     init().then(() => {
         testCut("Wasm initialized.");
-        loadDict(customDict);
-        testCut("Custom dict loaded.");
+        // loadDict(customDict);
+        // testCut("Custom dict loaded.");
+        addWord("中出", undefined, undefined);
+        testCut("Custom word added.");
+        console.log(tokenize("中华人民共和国武汉市长江大桥", TokenizeMode.Default, false));
     });
 
     function testCut(message) {
