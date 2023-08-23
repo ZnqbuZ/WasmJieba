@@ -1,6 +1,6 @@
 [package]
 name = "wasmjieba"
-version = "1.0.2"
+version = "1.0.3"
 authors = ["Luna Yao <me+github@zznq.buzz>"]
 edition = "2021"
 description = "A WASM binding to jieba-rs."
@@ -15,7 +15,7 @@ default = ["console_error_panic_hook"]
 
 [dependencies]
 wasm-bindgen = "0.2"
-jieba-rs = { path = "jieba-rs" }
+jieba-rs = { path = "jieba-rs", features = ["tfidf", "textrank"] }
 
 # The `console_error_panic_hook` crate provides better debugging of panics by
 # logging them with `console.error`. This is great for development, but requires
