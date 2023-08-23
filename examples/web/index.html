@@ -6,7 +6,7 @@
 </head>
 <body>
 <script type="module">
-    import init, {cut, loadDict} from "../../pkg/web/wasmjieba.js";
+    import init, {cut, loadDict} from "../../pkg/web/web.js";
     import {customDict} from "./custom.dict.js";
 
     init().then(() => {
@@ -30,7 +30,7 @@
         ]
         for (let sentence of testSentences) {
             console.log(sentence)
-            console.log(cut(sentence, false))
+            console.log(cut(sentence, true))
         }
     }
 </script>
