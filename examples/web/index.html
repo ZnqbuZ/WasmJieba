@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8"/>
+    <title>wasmjieba test</title>
+</head>
+<body>
+<script type="module">
+    import init, {cut, loadDict} from "../../pkg/web/wasmjieba.js";
+    import {customDict} from "./custom.dict.js";
+
+    init().then(() => {
+        testCut("Wasm initialized.");
+        loadDict(customDict);
+        testCut("Custom dict loaded.");
+    });
+
+    function testCut(message) {
+        console.log(message)
+        let testSentences = [
+            "我们中出了一个叛徒",
+            "我来到北京清华大学",
+            "他来到了网易杭研大厦",
+            "小明硕士毕业于中国科学院计算所，后在日本京都大学深造",
+            "实变函数论与泛函分析",
+            "實變函數論與泛函分析",
+            "梅竹錦標對抗賽",
+            "小明畢業於國立交通大學資訊科學與工程研究所",
+            "新竹的交通大學要在2021年2月1日與台北的陽明大學合併"
+        ]
+        for (let sentence of testSentences) {
+            console.log(sentence)
+            console.log(cut(sentence, false))
+        }
+    }
+</script>
+</body>
+</html>
