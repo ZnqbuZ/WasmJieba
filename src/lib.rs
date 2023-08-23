@@ -85,6 +85,18 @@ pub fn tokenize(text: &str, mode: Option<TokenizeMode>, hmm: bool) -> Vec<JsValu
         .collect()
 }
 
+// I don't know what this function is for actually.
+// Implemented anyway.
+#[wasm_bindgen]
+#[allow(non_snake_case)]
+pub fn tag(sentence: &str, hmm: bool) -> Vec<JsValue> {
+    instance().read().unwrap()
+        .tag(sentence, hmm)
+        .into_iter()
+        .map(|t| serde_wasm_bindgen::to_value(&t).unwrap())
+        .collect()
+}
+
 #[wasm_bindgen]
 #[allow(non_snake_case)]
 pub fn suggestFreq(segment: &str) -> usize {
