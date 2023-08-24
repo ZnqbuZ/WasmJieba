@@ -23,6 +23,18 @@ Just read [src/lib.rs].
 
 [src/lib.rs]: https://github.com/ZnqbuZ/WasmJieba/blob/master/src/lib.rs
 
+## 🛠 Packages
+
+* [wasmjieba] (dummy package that depends on both targets)
+    * [wasmjieba-nodejs]
+    * [wasmjieba-web]
+
+[wasmjieba]: https://www.npmjs.com/package/wasmjieba
+
+[wasmjieba-nodejs]: https://www.npmjs.com/package/wasmjieba-nodejs
+
+[wasmjieba-web]: https://www.npmjs.com/package/wasmjieba-web
+
 ## 🚴 Usage
 
 See [examples/web] for an example.
