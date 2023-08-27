@@ -7,5 +7,7 @@ description = "This example is used for building jieba compatible dict from ordi
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+log = "0.4"
 env_logger = "0.10"
-wasmjieba = { path = "../.." }
+jieba-rs = { path = "../../jieba-rs" }
+#wasmjieba = { path = "../.." }
