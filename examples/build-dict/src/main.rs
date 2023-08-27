@@ -1,9 +1,6 @@
 use std::{fs, io};
-use std::any::Any;
-use std::fs::File;
 use std::io::{BufRead, BufReader, BufWriter, Seek, Write};
 use std::path::Path;
-use std::sync::Mutex;
 use log::{debug, error, info};
 
 fn new_dir(path: &Path) -> io::Result<()> {
@@ -49,9 +46,6 @@ fn dict_iter(src_dir: &Path, word_len: usize) {
         info!("Writing {:?} -> {:?}.", src, dst);
 
         for (uidx, line) in (&mut src_reader).lines().enumerate() {
-            if (11511 <= uidx) && (uidx <= 11513) {
-                debug!("Here!");
-            }
             if line.as_ref().unwrap().chars().count() <= word_len {
                 dst_writer.write(
                     format!("{}\n", line.unwrap()).as_bytes()).unwrap();
