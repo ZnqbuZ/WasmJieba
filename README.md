@@ -19,13 +19,16 @@ Thanks to [js-jieba] for the `default.hant` dict file.
 
 ## 🎁 Implemented APIs
 
+All APIs from jieba-rs.
 Just read [src/lib.rs].
+You may also refer to [jieba-rs' documentation].
 
 [src/lib.rs]: https://github.com/ZnqbuZ/WasmJieba/blob/master/src/lib.rs
+[jieba-rs' documentation]: https://docs.rs/crate/jieba-rs/latest
 
 ## 🛠 Packages
 
-* [wasmjieba] (dummy package that depends on both targets)
+* [wasmjieba] (Dummy package that depends on both targets. Pick the one you need below.)
     * [wasmjieba-nodejs]
     * [wasmjieba-web]
 
