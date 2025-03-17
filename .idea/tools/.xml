@@ -1,0 +1,16 @@
+<toolSet name="外部工具">
+  <tool name="Web" showInMainMenu="false" showInEditor="false" showInProject="false" showInSearchPopup="false" disabled="false" useConsole="true" showConsoleOnStdOut="false" showConsoleOnStdErr="false" synchronizeAfterRun="true">
+    <exec>
+      <option name="COMMAND" value="wasm-pack" />
+      <option name="PARAMETERS" value="pack" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/repos/WasmJieba/pkg/web" />
+    </exec>
+  </tool>
+  <tool name="Node.js" showInMainMenu="false" showInEditor="false" showInProject="false" showInSearchPopup="false" disabled="false" useConsole="true" showConsoleOnStdOut="false" showConsoleOnStdErr="false" synchronizeAfterRun="true">
+    <exec>
+      <option name="COMMAND" value="wasm-pack" />
+      <option name="PARAMETERS" value="pack" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/repos/WasmJieba/pkg/nodejs" />
+    </exec>
+  </tool>
+</toolSet>
