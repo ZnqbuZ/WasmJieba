@@ -38,7 +38,7 @@ fn instance() -> &'static RwLock<jieba_rs::Jieba> {
 // Only used for loading dicts.
         macro_rules! include_dict {
     ($dict:literal)=>{
-        let dict = include_str!(concat!("dicts/",$dict));
+        let dict = include_str!(concat!("dicts/", $dict));
         new_instance.write().unwrap()
             .load_dict(&mut BufReader::new(dict.as_bytes())).unwrap();
         info!(concat!($dict," loaded."));
@@ -54,17 +54,17 @@ fn instance() -> &'static RwLock<jieba_rs::Jieba> {
         // To avoid, although very unlikely to occur, potential legal issues, I prefer not to
         // recording the source of these dicts and the translation API I used.
         // Mathematics
-        include_dict!("110.ime.hans");
-        include_dict!("110.ime.hant");
+        include_dict!("2.dicts/110.ime.hans");
+        include_dict!("2.dicts/110.ime.hant");
         // Physics
-        include_dict!("140.ime.hans");
-        include_dict!("140.ime.hant");
+        include_dict!("2.dicts/140.ime.hans");
+        include_dict!("2.dicts/140.ime.hant");
         // Computer Science
-        include_dict!("520.ime.hans");
-        include_dict!("520.ime.hant");
+        include_dict!("2.dicts/520.ime.hans");
+        include_dict!("2.dicts/520.ime.hant");
         // Development
-        include_dict!("52040.ime.hans");
-        include_dict!("52040.ime.hant");
+        include_dict!("2.dicts/52040.ime.hans");
+        include_dict!("2.dicts/52040.ime.hant");
 
         new_instance
     })
