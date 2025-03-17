@@ -11,7 +11,6 @@
 
 This is a minimal usable WASM binding to [jieba-rs].
 Both Simplified Chinese and Traditional Chinese are supported.
-Thanks to [js-jieba] for the `default.hant` dict file.
 
 [jieba-rs]: https://github.com/messense/jieba-rs
 

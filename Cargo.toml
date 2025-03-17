@@ -15,7 +15,7 @@ default = ["console_error_panic_hook"]
 
 [dependencies]
 log = {workspace = true}
-jieba-rs = {workspace = true, features = ["tfidf", "textrank"]}
+jieba-rs = {workspace = true, features = ["default-dict", "tfidf", "textrank"]}
 serde = { version = "1.*", features = ["derive"] }
 serde_json = "1.*"
 serde-wasm-bindgen = "0.*"
