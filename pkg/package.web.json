@@ -2,7 +2,7 @@
   "name": "wasmjieba-web",
   "main": "wasmjieba-web.js",
   "collaborators": [
-    "Luna Yao <me+github@zznq.buzz>"
+    "Luna Yao <github@me.zznq.buzz>"
   ],
   "description": "A WASM binding to jieba-rs.",
   "keywords": [
@@ -18,7 +18,7 @@
     "中文",
     "Chinese"
   ],
-  "version": "1.0.11",
+  "version": "1.0.12",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -28,7 +28,6 @@
     "./snippets/*"
   ],
   "files": [
-    "LICENSE*",
     "*.wasm",
     "*.js",
     "*.json",
