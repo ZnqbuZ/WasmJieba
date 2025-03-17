@@ -1,6 +1,6 @@
 [package]
 name = "wasmjieba"
-version = "1.0.11"
+version = "1.0.12"
 authors = ["Luna Yao <github@me.zznq.buzz>"]
 edition = "2024"
 description = "A WASM binding to jieba-rs."
@@ -14,6 +14,8 @@ crate-type = ["cdylib", "rlib"]
 default = ["console_error_panic_hook"]
 
 [dependencies]
+log = {workspace = true}
+jieba-rs = {workspace = true, features = ["tfidf", "textrank"]}
 serde = { version = "1.*", features = ["derive"] }
 serde_json = "1.*"
 serde-wasm-bindgen = "0.*"
@@ -44,4 +46,4 @@ members = [
 [workspace.dependencies]
 env_logger = "0.*"
 log = "0.*"
-jieba-rs = { path = "jieba-rs", features = ["tfidf", "textrank"] }
+jieba-rs = { path = "jieba-rs" }
