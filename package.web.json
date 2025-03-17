@@ -1,5 +1,6 @@
 {
-  "name": "wasmjieba",
+  "name": "wasmjieba-web",
+  "main": "wasmjieba-web.js",
   "collaborators": [
     "Luna Yao <github@me.zznq.buzz>"
   ],
@@ -17,7 +18,7 @@
     "中文",
     "Chinese"
   ],
-  "version": "1.0.12",
+  "version": "1.0.13",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -27,9 +28,9 @@
     "./snippets/*"
   ],
   "files": [
-  ],
-  "dependencies": {
-    "wasmjieba-web": "*",
-    "wasmjieba-nodejs": "*"
-  }
+    "*.wasm",
+    "*.js",
+    "*.json",
+    "*.ts"
+  ]
 }
