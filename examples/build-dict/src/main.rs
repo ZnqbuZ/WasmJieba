@@ -13,10 +13,10 @@ fn new_dir(path: &Path) -> io::Result<()> {
 
 fn dict_iter(src_dir: &Path, word_len: usize) {
     let dst_dir = src_dir.join(
-        format!("../{}.dicts", word_len));
+        format!("../{}.ime_dicts", word_len));
     new_dir(dst_dir.as_path()).unwrap();
 
-    let dst2_dir = src_dir.join(format!("../{}.dicts", word_len + 1));
+    let dst2_dir = src_dir.join(format!("../{}.ime_dicts", word_len + 1));
     new_dir(dst2_dir.as_path()).unwrap();
 
     let src_dicts = fs::read_dir(src_dir).unwrap();
@@ -103,9 +103,9 @@ fn dict_iter(src_dir: &Path, word_len: usize) {
 fn main() -> io::Result<()> {
     env_logger::init();
 
-    let ime_dicts = Path::new("examples/build-dict/dicts");
+    let ime_dicts = Path::new("../../../assets/ime_dicts");
 
-    // This function generates 2 groups of dicts:
+    // This function generates 2 groups of ime_dicts:
     //      1. 2-char words;
     //      2. 3-char words that cannot be cut with 1.
     // I found that most words in 2. should not be treated as single words,
