@@ -10,10 +10,10 @@ jieba.enable_paddle()
 print("Loading user dict...")
 jieba.load_userdict(r".\dict.txt.big")
 
-print("Building dicts...")
-shutil.copy(r".\dict.txt.big", r".\out\dict.txt.big")
-for dict in os.listdir("dicts"):
-    with open(f"dicts/{dict}", "r", encoding="utf-8") as fin:
+print("Building ime_dicts...")
+shutil.copy(r"../../assets/dict.txt.big", r".\out\dict.txt.big")
+for dict in os.listdir("../../assets/ime_dicts"):
+    with open(f"../../assets/ime_dicts/{dict}", "r", encoding="utf-8") as fin:
         print(dict)
         new_dict = set([])
         for line in fin:
