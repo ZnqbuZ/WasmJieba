@@ -1,3 +1,9 @@
 [submodule "jieba-rs"]
 	path = jieba-rs
 	url = git@github.com:ZnqbuZ/jieba-rs.git
+[submodule "assets/DomainWordsDict"]
+	path = assets/DomainWordsDict
+	url = git@github.com:liuhuanyong/DomainWordsDict.git
+[submodule "assets/THUOCL"]
+	path = assets/THUOCL
+	url = git@github.com:thunlp/THUOCL.git
