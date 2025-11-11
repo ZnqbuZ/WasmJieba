@@ -12,6 +12,7 @@
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/examples/build-dict/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/examples/web" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/examples" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/pkg" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>

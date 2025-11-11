@@ -1,6 +1,6 @@
 [package]
 name = "wasmjieba"
-version = "1.0.14"
+version = "1.0.15"
 authors = ["Luna Yao <40349250+ZnqbuZ@users.noreply.github.com>"]
 edition = "2024"
 description = "A WASM binding to jieba-rs."
