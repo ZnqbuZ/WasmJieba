@@ -39,7 +39,7 @@ jobs:
       - name: Install tomlq
         run: |
           sudo apt-get update
-          sudo apt-get install -y tomlq
+          sudo apt-get install -y yq
 
       - name: Publish
         run: |
