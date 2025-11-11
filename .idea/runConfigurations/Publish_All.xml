@@ -1,7 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Publish All" type="CompoundRunConfigurationType">
-    <toRun name="Node.js Publish" type="js.build_tools.npm" />
-    <toRun name="Web Publish" type="js.build_tools.npm" />
-    <method v="2" />
-  </configuration>
-</component>
