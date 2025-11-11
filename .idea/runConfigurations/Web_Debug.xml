@@ -3,7 +3,7 @@
     <option name="command" value="build --target web --out-dir pkg/web/pkg  --out-name wasmjieba-web --dev" />
     <option name="workingDirectory" value="file://$PROJECT_DIR$" />
     <envs />
-    <option name="emulateTerminal" value="false" />
+    <option name="emulateTerminal" value="true" />
     <method v="2">
       <option name="WASM_PACK.BUILD_TASK_PROVIDER" enabled="true" />
     </method>

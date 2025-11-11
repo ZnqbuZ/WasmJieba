@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Web Pack " type="WasmPackCommandRunConfiguration" factoryName="wasm-pack">
-    <option name="command" value="pack pkg/web/pkg" />
+    <option name="command" value="pack ./pkg/web/pkg" />
     <option name="workingDirectory" value="file://$PROJECT_DIR$" />
     <envs />
     <option name="emulateTerminal" value="true" />

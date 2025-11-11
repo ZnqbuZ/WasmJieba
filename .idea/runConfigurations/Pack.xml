@@ -3,7 +3,7 @@
     <option name="command" value="pack pkg" />
     <option name="workingDirectory" value="file://$PROJECT_DIR$" />
     <envs />
-    <option name="emulateTerminal" value="false" />
+    <option name="emulateTerminal" value="true" />
     <method v="2">
       <option name="RunConfigurationTask" enabled="true" run_configuration_name="Copy package.json" run_configuration_type="ShConfigurationType" />
       <option name="RunConfigurationTask" enabled="true" run_configuration_name="Pack All" run_configuration_type="CompoundRunConfigurationType" />

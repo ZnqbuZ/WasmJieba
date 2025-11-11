@@ -17,7 +17,7 @@
     "中文",
     "Chinese"
   ],
-  "version": "1.0.14",
+  "version": "__VERSION__",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -29,7 +29,7 @@
   "files": [
   ],
   "dependencies": {
-    "wasmjieba-web": "*",
-    "wasmjieba-nodejs": "*"
+    "wasmjieba-web": "__VERSION__",
+    "wasmjieba-nodejs": "__VERSION__"
   }
 }

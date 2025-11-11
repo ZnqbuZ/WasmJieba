@@ -3,7 +3,7 @@
     <option name="command" value="build --target nodejs --out-dir pkg/nodejs/pkg --out-name wasmjieba-nodejs --dev" />
     <option name="workingDirectory" value="file://$PROJECT_DIR$" />
     <envs />
-    <option name="emulateTerminal" value="false" />
+    <option name="emulateTerminal" value="true" />
     <method v="2">
       <option name="WASM_PACK.BUILD_TASK_PROVIDER" enabled="true" />
     </method>

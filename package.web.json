@@ -18,7 +18,7 @@
     "中文",
     "Chinese"
   ],
-  "version": "1.0.14",
+  "version": "__VERSION__",
   "license": "MIT",
   "repository": {
     "type": "git",
