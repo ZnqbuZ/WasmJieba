@@ -56,7 +56,7 @@ fn main() {
                     continue;
                 }
                 dict_content.push_str(line.as_str());
-                dict_content.push_str("\n");
+                dict_content.push('\n');
             }
         }
     }
@@ -71,7 +71,7 @@ fn main() {
         .unwrap()
         .as_str(),
     );
-    dict_content.push_str("\n");
+    dict_content.push('\n');
 
     fs::write(
         &dest_path,
