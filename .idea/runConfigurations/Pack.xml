@@ -5,7 +5,7 @@
     <envs />
     <option name="emulateTerminal" value="false" />
     <method v="2">
-      <option name="RunConfigurationTask" enabled="true" run_configuration_name="Copy package.json" run_configuration_type="CLionNativeAppRunConfigurationType" />
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="Copy package.json" run_configuration_type="ShConfigurationType" />
       <option name="RunConfigurationTask" enabled="true" run_configuration_name="Pack All" run_configuration_type="CompoundRunConfigurationType" />
     </method>
   </configuration>
