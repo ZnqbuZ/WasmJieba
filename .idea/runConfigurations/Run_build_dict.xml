@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Run build_dict" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
     <option name="buildProfileId" value="release" />
-    <option name="command" value="run --package build_dict --bin build_dict --target x86_64-pc-windows-msvc" />
+    <option name="command" value="run --package build_dict --bin build_dict --target x86_64-unknown-linux-gnu" />
     <option name="workingDirectory" value="file://$PROJECT_DIR$" />
     <envs>
       <env name="RUST_LOG" value="info" />

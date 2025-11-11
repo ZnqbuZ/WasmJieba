@@ -2,7 +2,7 @@
   <configuration default="false" name="Test cut" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
     <option name="buildProfileId" value="test" />
     <target name="@@@LOCAL@@@" />
-    <option name="command" value="test --test test cut --target x86_64-pc-windows-gnu -- --nocapture" />
+    <option name="command" value="test --test test cut --target x86_64-unknown-linux-gnu -- --nocapture" />
     <option name="workingDirectory" value="file://$PROJECT_DIR$" />
     <envs />
     <option name="emulateTerminal" value="true" />
