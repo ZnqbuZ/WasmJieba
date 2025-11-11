@@ -27,7 +27,7 @@ for MANIFEST in package.json nodejs/pkg/package.json web/pkg/package.json; do
     '
       .collaborators = $collaborators
       | .description = $description
-      | .repository = {"type": "git", "url": $repository}
+      | .repository = {"type": "git", "url": ("git+" + $repository)}
       | .license = $license
     ' "$MANIFEST" > $MANIFEST.tmp
   mv $MANIFEST.tmp $MANIFEST
