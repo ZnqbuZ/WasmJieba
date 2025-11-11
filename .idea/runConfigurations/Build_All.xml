@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Build All" type="CompoundRunConfigurationType">
+    <toRun name="Node.js Release" type="WasmPackCommandRunConfiguration" />
+    <toRun name="Web Release" type="WasmPackCommandRunConfiguration" />
+    <method v="2" />
+  </configuration>
+</component>

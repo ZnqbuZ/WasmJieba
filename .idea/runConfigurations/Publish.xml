@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Publish" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="WasmJieba" TARGET_NAME="Default" CONFIG_NAME="Default" version="1">
+    <method v="2">
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="Copy package.json" run_configuration_type="CLionNativeAppRunConfigurationType" />
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="Dummy Publish" run_configuration_type="js.build_tools.npm" />
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="Node.js Publish" run_configuration_type="js.build_tools.npm" />
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="Web Publish" run_configuration_type="js.build_tools.npm" />
+    </method>
+  </configuration>
+</component>

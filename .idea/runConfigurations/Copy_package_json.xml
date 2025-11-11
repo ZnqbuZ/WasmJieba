@@ -1,0 +1,5 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Copy package.json" type="CLionNativeAppRunConfigurationType" PROGRAM_PARAMS="-c &quot;cd \&quot;$ProjectFileDir$\pkg\&quot;; cp ..\LICENSE .; cp ..\README.md .; cp ..\package.dummy.json package.json; cp ..\package.nodejs.json nodejs\pkg\package.json; cp ..\package.web.json web\pkg\package.json;&quot;" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="WasmJieba" TARGET_NAME="Default" CONFIG_NAME="Default" version="1" RUN_PATH="C:/Program Files/PowerShell/7/pwsh.exe">
+    <method v="2" />
+  </configuration>
+</component>

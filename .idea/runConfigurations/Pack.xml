@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Pack" type="WasmPackCommandRunConfiguration" factoryName="wasm-pack">
+    <option name="command" value="pack pkg" />
+    <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+    <envs />
+    <option name="emulateTerminal" value="false" />
+    <method v="2">
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="Copy package.json" run_configuration_type="CLionNativeAppRunConfigurationType" />
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="Pack All" run_configuration_type="CompoundRunConfigurationType" />
+    </method>
+  </configuration>
+</component>
