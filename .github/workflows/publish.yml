@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: recursive
           fetch-depth: 0
 
       - uses: actions/setup-node@v4
@@ -35,6 +35,11 @@ jobs:
         run: |
           wasm-pack build --target nodejs --out-dir pkg/nodejs/pkg --out-name wasmjieba-nodejs --release
           wasm-pack build --target web --out-dir pkg/web/pkg  --out-name wasmjieba-web --release
+
+      - name: Install tomlq
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y tomlq
 
       - name: Publish
         run: |
