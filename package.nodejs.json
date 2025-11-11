@@ -1,10 +1,6 @@
 {
   "name": "wasmjieba-nodejs",
   "main": "wasmjieba-nodejs.js",
-  "collaborators": [
-    "Luna Yao <github@me.zznq.buzz>"
-  ],
-  "description": "A WASM binding to jieba-rs.",
   "keywords": [
     "Jieba",
     "Rust",
@@ -19,11 +15,6 @@
     "Chinese"
   ],
   "version": "__VERSION__",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ZnqbuZ/WasmJieba"
-  },
   "sideEffects": [
     "./snippets/*"
   ],
