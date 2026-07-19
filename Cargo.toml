@@ -1,6 +1,6 @@
 [package]
 name = "wasmjieba"
-version = "1.0.15"
+version = "2.0.0"
 authors = ["Luna Yao <40349250+ZnqbuZ@users.noreply.github.com>"]
 edition = "2024"
 description = "A WASM binding to jieba-rs."
@@ -47,7 +47,7 @@ members = [
 [workspace.dependencies]
 env_logger = "0.*"
 log = "0.*"
-jieba-rs = "0.*"
+jieba-rs = { version = "0.*", default-features = false  }
 
 [patch.crates-io]
 jieba-rs = { git = "https://github.com/ZnqbuZ/jieba-rs.git", branch = "wasm" }
