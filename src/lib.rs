@@ -20,6 +20,12 @@ fn to_value<T: serde::ser::Serialize + ?Sized>(value: &T) -> Result<JsValue, JsV
     }
 }
 
+#[cfg_attr(target_family = "wasm", wasm_bindgen(typescript_custom_section))]
+const TOKEN: &'static str = include_str!(concat!(env!("OUT_DIR"), "/Token.ts"));
+
+#[cfg_attr(target_family = "wasm", wasm_bindgen(typescript_custom_section))]
+const TAG: &'static str = include_str!(concat!(env!("OUT_DIR"), "/Tag.ts"));
+
 #[cfg_attr(target_family = "wasm", wasm_bindgen)]
 unsafe extern "C" {}
 
@@ -30,7 +36,8 @@ static INSTANCE: LazyLock<RwLock<jieba_rs::Jieba>> = LazyLock::new(|| {
 
     let instance = jieba_rs::Jieba::with_dict(&mut BufReader::new(
         Decoder::new(Cursor::new(COMPRESSED_DICTS)).unwrap(),
-    )).unwrap();
+    ))
+    .unwrap();
 
     info!("instance created.");
 
@@ -49,29 +56,41 @@ macro_rules! write {
     };
 }
 
-#[cfg_attr(target_family = "wasm", wasm_bindgen)]
+#[cfg_attr(
+    target_family = "wasm",
+    wasm_bindgen(unchecked_return_type = "Token[]")
+)]
 pub fn cut(text: &str, hmm: bool) -> Result<JsValue, JsValue> {
     to_value(&read!().cut(text, hmm))
 }
 
-#[cfg_attr(target_family = "wasm", wasm_bindgen)]
+#[cfg_attr(
+    target_family = "wasm",
+    wasm_bindgen(unchecked_return_type = "Token[]")
+)]
 pub fn cutAll(text: &str) -> Result<JsValue, JsValue> {
     to_value(&read!().cut_all(text))
 }
 
-#[cfg_attr(target_family = "wasm", wasm_bindgen)]
+#[cfg_attr(
+    target_family = "wasm",
+    wasm_bindgen(unchecked_return_type = "Token[]")
+)]
 pub fn cutForSearch(text: &str, hmm: bool) -> Result<JsValue, JsValue> {
     to_value(&read!().cut_for_search(text, hmm))
 }
 
-#[cfg_attr(target_family = "wasm", wasm_bindgen)]
+#[cfg_attr(
+    target_family = "wasm",
+    wasm_bindgen(unchecked_return_type = "Token[]")
+)]
 pub fn tokenize(text: &str, mode: jieba_rs::TokenizeMode, hmm: bool) -> Result<JsValue, JsValue> {
     to_value(&read!().tokenize(text, mode, hmm))
 }
 
 // I don't know what this function is for actually.
 // Implemented anyway.
-#[cfg_attr(target_family = "wasm", wasm_bindgen)]
+#[cfg_attr(target_family = "wasm", wasm_bindgen(unchecked_return_type = "Tag[]"))]
 pub fn tag(sentence: &str, hmm: bool) -> Result<JsValue, JsValue> {
     to_value(&read!().tag(sentence, hmm))
 }

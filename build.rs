@@ -1,3 +1,4 @@
+use jieba_rs::ts_rs::{Config, TS};
 use std::collections::HashSet;
 use std::fs::File;
 use std::io::{BufRead, BufReader, Cursor};
@@ -6,6 +7,15 @@ use std::{env, fs};
 use zstd::stream::encode_all;
 
 fn main() {
+    let manifest_dir = env::var("CARGO_MANIFEST_DIR").unwrap();
+    let manifest_dir = Path::new(&manifest_dir);
+    let our_dir = env::var("OUT_DIR").unwrap();
+    let out_dir = Path::new(&our_dir);
+
+    let config = Config::default().with_out_dir(out_dir);
+    jieba_rs::Token::export(&config).unwrap();
+    jieba_rs::Tag::export(&config).unwrap();
+
     let include_dict = HashSet::from(["数学科学.txt", "物理科学.txt", "计算机业.txt"]);
 
     let exclude_dict = HashSet::from([
@@ -22,16 +32,14 @@ fn main() {
         "办公文教.txt",
     ]);
 
-    let threshold = 1024 * 1024;
-
-    let manifest_dir = env::var("CARGO_MANIFEST_DIR").unwrap();
-    let out_dir = env::var("OUT_DIR").unwrap();
-    let dest_path = Path::new(&out_dir).join("dicts.bin");
+    let dest_path = out_dir.join("dicts.bin");
 
     println!("cargo:warning=Writing to: {}", dest_path.to_str().unwrap());
 
-    let dict_dir_path = Path::new(&manifest_dir).join("assets/DomainWordsDict/data");
-    let dict_list = fs::read_dir(dict_dir_path).unwrap();
+    let threshold = 1024 * 1024;
+
+    let dict_dir = manifest_dir.join("assets/DomainWordsDict/data");
+    let dict_list = fs::read_dir(dict_dir).unwrap();
     let mut dict_content = String::new();
     for dict in dict_list {
         // continue;
@@ -62,14 +70,9 @@ fn main() {
     }
 
     dict_content.push_str(
-        fs::read_to_string(
-            Path::new(&manifest_dir)
-                .join("assets/dict.txt.big")
-                .to_str()
-                .unwrap(),
-        )
-        .unwrap()
-        .as_str(),
+        fs::read_to_string(manifest_dir.join("assets/dict.txt.big").to_str().unwrap())
+            .unwrap()
+            .as_str(),
     );
     dict_content.push('\n');
 

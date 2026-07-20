@@ -1,7 +1,7 @@
-use std::{fs, io};
+use log::{debug, error, info};
 use std::io::{BufRead, BufReader, BufWriter, Seek, Write};
 use std::path::Path;
-use log::{debug, error, info};
+use std::{fs, io};
 
 fn new_dir(path: &Path) -> io::Result<()> {
     if path.exists() {
@@ -12,8 +12,7 @@ fn new_dir(path: &Path) -> io::Result<()> {
 }
 
 fn dict_iter(src_dir: &Path, word_len: usize) {
-    let dst_dir = src_dir.join(
-        format!("../{}.ime_dicts", word_len));
+    let dst_dir = src_dir.join(format!("../{}.ime_dicts", word_len));
     new_dir(dst_dir.as_path()).unwrap();
 
     let dst2_dir = src_dir.join(format!("../{}.ime_dicts", word_len + 1));
@@ -23,32 +22,34 @@ fn dict_iter(src_dir: &Path, word_len: usize) {
     for src_dict in src_dicts {
         let src_path = src_dict.as_ref().unwrap().path();
         let src = src_path.as_path();
-        let mut src_reader = BufReader::new(
-            fs::OpenOptions::new()
-                .read(true)
-                .open(src)
-                .unwrap());
+        let mut src_reader = BufReader::new(fs::OpenOptions::new().read(true).open(src).unwrap());
 
         let dst_path = dst_dir.join(
             src_dict
-                .as_ref().unwrap()
+                .as_ref()
+                .unwrap()
                 .path()
-                .file_name().unwrap()
-                .to_str().unwrap());
+                .file_name()
+                .unwrap()
+                .to_str()
+                .unwrap(),
+        );
         let dst = dst_path.as_path();
         let mut dst_writer = BufWriter::new(
             fs::OpenOptions::new()
                 .create_new(true)
                 .write(true)
                 .open(dst)
-                .unwrap());
+                .unwrap(),
+        );
 
         info!("Writing {:?} -> {:?}.", src, dst);
 
         for (uidx, line) in (&mut src_reader).lines().enumerate() {
             if line.as_ref().unwrap().chars().count() <= word_len {
-                dst_writer.write(
-                    format!("{}\n", line.unwrap()).as_bytes()).unwrap();
+                dst_writer
+                    .write(format!("{}\n", line.unwrap()).as_bytes())
+                    .unwrap();
             }
         }
 
@@ -56,25 +57,26 @@ fn dict_iter(src_dir: &Path, word_len: usize) {
         dst_writer.flush().unwrap();
 
         let mut jieba = jieba_rs::Jieba::new();
-        let mut dst_reader = BufReader::new(
-            fs::OpenOptions::new()
-                .read(true)
-                .open(dst)
-                .unwrap());
+        let mut dst_reader = BufReader::new(fs::OpenOptions::new().read(true).open(dst).unwrap());
 
         let dst2_path = dst2_dir.join(
             src_dict
-                .as_ref().unwrap()
+                .as_ref()
+                .unwrap()
                 .path()
-                .file_name().unwrap()
-                .to_str().unwrap());
+                .file_name()
+                .unwrap()
+                .to_str()
+                .unwrap(),
+        );
         let dst2 = dst2_path.as_path();
         let mut dst2_writer = BufWriter::new(
             fs::OpenOptions::new()
                 .create_new(true)
                 .write(true)
                 .open(dst2_path.as_path())
-                .unwrap());
+                .unwrap(),
+        );
 
         info!("Writing {:?} -> {:?}.", src, dst2);
         jieba.load_dict(&mut dst_reader).unwrap();
@@ -82,21 +84,28 @@ fn dict_iter(src_dir: &Path, word_len: usize) {
             let word = line.unwrap();
             let words = jieba.cut(&word, false);
             if words.len() >= word.chars().count() {
-                debug!("Not cut-able word: {}, from {}, line {}", word, src_path.display(), uidx);
+                debug!(
+                    "Not cut-able word: {}, from {}, line {}",
+                    word,
+                    src_path.display(),
+                    uidx
+                );
                 if word.chars().count() <= word_len {
                     error!("Some thing wrong here: {:?} => {:?}", word, words);
                 }
                 if word.chars().count() == word_len + 1 {
-                    dst2_writer.write(
-                        format!("{}\n", word).as_bytes()).unwrap();
+                    dst2_writer.write(format!("{}\n", word).as_bytes()).unwrap();
                 }
             }
         }
-    };
+    }
 
     let dst_dicts = fs::read_dir(dst_dir).unwrap();
     for dst_dict in dst_dicts {
-        println!("include_dict!(\"{}\");", dst_dict.unwrap().file_name().to_str().unwrap());
+        println!(
+            "include_dict!(\"{}\");",
+            dst_dict.unwrap().file_name().to_str().unwrap()
+        );
     }
 }
 
