@@ -15,10 +15,9 @@ cfg_select! {
 
 fn to_value<T: serde::ser::Serialize + ?Sized>(value: &T) -> Result<JsValue, JsValue> {
     cfg_select! {
-        target_family = "wasm" => value.serialize(&serde_wasm_bindgen::Serializer::new()),
-        _ => serde_json::to_string(value)
+        target_family = "wasm" => serde_wasm_bindgen::to_value(value).map_err(Into::into),
+        _ => serde_json::to_string(value).map_err(|e| e.to_string().into())
     }
-    .map_err(|e| e.to_string().into())
 }
 
 #[cfg_attr(target_family = "wasm", wasm_bindgen)]
@@ -65,27 +64,9 @@ pub fn cutForSearch(text: &str, hmm: bool) -> Result<JsValue, JsValue> {
     to_value(&read!().cut_for_search(text, hmm))
 }
 
-// wasm_bindgen needs to read this signature.
-// I wish patch jieba-rs as little as possible.
 #[cfg_attr(target_family = "wasm", wasm_bindgen)]
-pub enum TokenizeMode {
-    Default,
-    Search,
-}
-
-// Inelegant, but no better way found.
-impl TokenizeMode {
-    fn to_jieba(&self) -> jieba_rs::TokenizeMode {
-        match self {
-            TokenizeMode::Default => jieba_rs::TokenizeMode::Default,
-            TokenizeMode::Search => jieba_rs::TokenizeMode::Search,
-        }
-    }
-}
-
-#[cfg_attr(target_family = "wasm", wasm_bindgen)]
-pub fn tokenize(text: &str, mode: TokenizeMode, hmm: bool) -> Result<JsValue, JsValue> {
-    to_value(&read!().tokenize(text, mode.to_jieba(), hmm))
+pub fn tokenize(text: &str, mode: jieba_rs::TokenizeMode, hmm: bool) -> Result<JsValue, JsValue> {
+    to_value(&read!().tokenize(text, mode, hmm))
 }
 
 // I don't know what this function is for actually.
