@@ -28,18 +28,14 @@ jobs:
       - name: Update npm
         run: npm install -g npm@latest
 
-      - name: Install wasm-pack
-        run: cargo install wasm-pack
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: wasm-pack, tomlq
 
       - name: Build
         run: |
           wasm-pack build --target nodejs --out-dir pkg/nodejs/pkg --out-name wasmjieba-nodejs --release
           wasm-pack build --target web --out-dir pkg/web/pkg  --out-name wasmjieba-web --release
-
-      - name: Install tomlq
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y yq
 
       - name: Publish
         run: |
