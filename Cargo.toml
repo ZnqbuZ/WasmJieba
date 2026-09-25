@@ -51,4 +51,4 @@ log = "0.*"
 jieba-rs = { version = "0.*", default-features = false }
 
 [patch.crates-io]
-jieba-rs = { git = "https://github.com/ZnqbuZ/jieba-rs.git", branch = "wasm" }
+jieba-rs = { git = "https://github.com/ZnqbuZ/jieba-rs.git", branch = "main" }
